@@ -4,8 +4,16 @@
   "version": "1.0",
   "description": "Uses the VirusTotal api to scan a website and tell if it is safe or not",
 
-  "permissions": ["activeTab", "storage"],
-  "host_permissions": ["https://www.virustotal.com/api/v3/domains/*"],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  
+  "host_permissions": [
+    "<all_urls>",
+    "https://www.virustotal.com/api/v3/domains/*"
+  ],
 
   "action": {
     "default_popup": "popup.html"

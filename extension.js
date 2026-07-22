@@ -1,29 +1,26 @@
-const input = document.getElementById("apiKey");
-const button = document.getElementById("okButton");
-const status = document.getElementById("status");
+chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
+    if (changeInfo.status !== "complete" || !tab.url) return;
 
-// Load saved key
-document.addEventListener("DOMContentLoaded", async () => {
     const { apiKey } = await chrome.storage.local.get("apiKey");
 
-    if (apiKey) {
-        input.value = apiKey;
-        window.location.href = "main.html";
+    if (!apiKey) return;
+
+    const domain = new URL(tab.url).hostname;
+
+    console.log(domain);
+
+    const options = {
+    method: 'POST',
+    headers: {
+        accept: 'application/json',
+        'content-type': 'application/x-www-form-urlencoded',
+        "x-apikey": apiKey
     }
+    };
+
+    var res = fetch(`https://www.virustotal.com/api/v3/urls/${domain}`, options)
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(err => console.error(err));
 });
 
-// Save key
-button.addEventListener("click", async () => {
-    const apiKey = input.value.trim();
-
-    if (!apiKey) {
-        status.textContent = "Please enter an API key.";
-        status.style.color = "red";
-        return;
-    }
-
-    await chrome.storage.local.set({ apiKey });
-
-    status.textContent = "API key saved!";
-    status.style.color = "green";
-});
