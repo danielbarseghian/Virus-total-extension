@@ -22,6 +22,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
       const results = json.data.attributes.last_analysis_results;
       let harmful = 0;
       let total = 0;
+      let color;
 
       for (const [engine, result] of Object.entries(results)) {
         total += 1;
@@ -33,14 +34,19 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
       console.log(`Malicious: ${harmful} total: ${total}`);
 
       if (harmful > 0 && harmful < 4) {
-        console.log("YELLOW");
+        color = "#FFEE00";
       } 
       else if (harmful >= 4) {
-        console.log("RED");
+        color = "#FF2D00";
       }
       else {
-        console.log("GREEN GIANT");
+        color = "#12EB05"
       }
+
+      chrome.storage.local.set({ lastColor: color });
+
+      chrome.runtime.sendMessage({ action: color });
+
     })
     .catch(err => console.error(err));
 });
