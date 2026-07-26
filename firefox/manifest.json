@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "VirusTotal Extension",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Uses the VirusTotal api to scan a website and tell if it is safe or not",
 
   "permissions": [
@@ -9,6 +9,15 @@
     "storage",
     "tabs"
   ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "virus-total-extension@virus-total-extension.com",
+      "data_collection_permissions": {
+        "required" : ["none"]
+      }
+    }
+  },
   
   "host_permissions": [
     "<all_urls>",
