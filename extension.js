@@ -42,10 +42,9 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
       else {
         color = "#12EB05"
       }
-
-      chrome.storage.local.set({ lastColor: color });
-
-      chrome.runtime.sendMessage({ action: color });
+      
+      chrome.action.setBadgeBackgroundColor({ color });
+      chrome.action.setBadgeText({ text: harmful > 0 ? String(harmful) : "0" });
 
     })
     .catch(err => console.error(err));

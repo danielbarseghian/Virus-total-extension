@@ -21,5 +21,6 @@
 
   "background": {
     "service_worker": "extension.js"
+    
   }
 }
