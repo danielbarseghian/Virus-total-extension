@@ -8,11 +8,11 @@ The extension listens for the browser's tab/URL updates. Every time you navigate
 
 ## Color Coding
 
-| Color     | Meaning                                  |
-|-----------|-------------------------------------------|
-| 🟢 Green  | 0 vendors flagged the URL                 |
-| 🟡 Yellow | 1–3 vendors flagged the URL               |
-| 🔴 Red    | 4+ vendors flagged the URL                |
+| Color  | Meaning                                |
+|--------|----------------------------------------|
+| Green  | 0 vendors flagged the URL              |
+| Yellow | 1–3 vendors flagged the URL            |
+| Red    | 4+ vendors flagged the URL             |
 
 ## How to Use
 
@@ -29,14 +29,10 @@ git clone https://github.com/your-username/Virus-total-extension.git
 2. Enable **Developer mode** (top-right toggle).
 3. Click **Load unpacked** and select the cloned folder.
 
-*(screenshot)*
-
 **Firefox**
 1. Go to `about:debugging#/runtime/this-firefox`.
 2. Click **Load Temporary Add-on**.
 3. Select the `manifest.json` file inside the cloned folder.
-
-*(screenshot)*
 
 ### 3. Add your VirusTotal API key
 
