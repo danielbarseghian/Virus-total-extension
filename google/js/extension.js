@@ -14,9 +14,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     }
   };
 
-  console.log(`checking on ${domain}`);
-
-  if (domain) {
+  if (domain && domain.includes(".")) {
     fetch(`https://www.virustotal.com/api/v3/domains/${domain}`, options)
       .then(res => res.json())
       .then(json => {
@@ -31,8 +29,6 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
             harmful += 1;
           }
         }
-
-        console.log(`Malicious: ${harmful} total: ${total}`);
 
         if (harmful > 0 && harmful < 4) {
           color = "#FFEE00";
