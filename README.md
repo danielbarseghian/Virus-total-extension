@@ -27,12 +27,12 @@ git clone https://github.com/your-username/Virus-total-extension.git
 **Chrome**
 1. Go to `chrome://extensions`.
 2. Enable **Developer mode** (top-right toggle).
-3. Click **Load unpacked** and select the google folder.
+3. Click **Load unpacked** and select the google folder or zip.
 
 **Firefox**
 1. Go to `about:debugging#/runtime/this-firefox`.
 2. Click **Load Temporary Add-on**.
-3. Select the `manifest.json` file inside the firefox folder.
+3. Select the `manifest.json` file inside the firefox folder or zip.
 
 ### 3. Add your VirusTotal API key
 
