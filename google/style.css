@@ -1,15 +1,40 @@
 body {
     background-color: #161625;
+}
+
+.main-size {
     width:200px;
-    height:85px;
+    height: 75px;
+}
+
+.popup-size {
+    width: 237px;
+    height:20px;
 }
 
 .title {
     color: #86AAF9;
     text-align: center;
+    font-size: 16px;
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
 .text {
     color: #EAEAEB;
     text-align: center;
+    font-size: 16px;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+#apikey {
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+#okButton {
+    font-family: 'Roboto', Arial, sans-serif;
 }
